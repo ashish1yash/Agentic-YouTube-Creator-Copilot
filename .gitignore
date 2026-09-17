@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+request.json
+interaction.json
+test_38.json
