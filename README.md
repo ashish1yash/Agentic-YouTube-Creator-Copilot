@@ -83,57 +83,67 @@ A maximum revision limit is used to prevent an endless loop.
 
 ## Project Structure
 
+## Project Structure
+
+```text
 Agentic-YouTube-Creator-Copilot/
 │
 ├── app/
+│   │
 │   ├── agents/
-│   │   ├── content_analyst.py
-│   │   ├── content_writer.py
-│   │   ├── seo_analyst.py
-│   │   └── validator.py
+│   │   ├── __init__.py
+│   │   ├── content_analyst.py       # Analyzes the video transcript
+│   │   ├── content_writer.py        # Generates and revises content
+│   │   ├── seo_analyst.py           # Generates SEO keywords, tags and hashtags
+│   │   └── validator.py              # Validates the generated content
 │   │
 │   ├── models/
-│   │   └── schemas.py
+│   │   ├── __init__.py
+│   │   └── schemas.py               # Structured data models using Pydantic
 │   │
 │   ├── prompts/
-│   │   ├── content_analyst.txt
-│   │   ├── content_writer.txt
-│   │   ├── seo_analyst.txt
-│   │   └── validator.txt
+│   │   ├── content_analyst.txt      # Prompt for Content Analyst
+│   │   ├── content_writer.txt       # Prompt for Content Writer
+│   │   ├── seo_analyst.txt          # Prompt for SEO Analyst
+│   │   └── validator.txt            # Prompt for Validator
 │   │
 │   ├── services/
-│   │   └── llm.py
+│   │   ├── __init__.py
+│   │   └── llm.py                   # Gemini API service
 │   │
 │   ├── tools/
-│   │   ├── transcript_cleaner.py
-│   │   └── youtube.py
+│   │   ├── __init__.py
+│   │   ├── transcript_cleaner.py    # Cleans the extracted transcript
+│   │   └── youtube.py               # YouTube URL and transcript handling
 │   │
 │   └── workflow/
-│       ├── content_node.py
-│       ├── decision.py
-│       ├── revision_node.py
-│       ├── seo_node.py
-│       ├── state.py
-│       ├── validator_node.py
-│       ├── writer_node.py
-│       └── youtube_node.py
+│       ├── __init__.py
+│       ├── content_node.py           # Content analysis workflow node
+│       ├── decision.py               # Decides whether to finish or revise
+│       ├── revision_node.py          # Handles content revision
+│       ├── seo_node.py               # SEO analysis workflow node
+│       ├── state.py                  # Shared workflow state
+│       ├── validator_node.py         # Validation workflow node
+│       ├── writer_node.py            # Content generation workflow node
+│       └── youtube_node.py           # YouTube processing workflow node
 │
-├── main.py
-├── requirements.txt
+├── main.py                           # Runs the complete workflow
+├── requirements.txt                  # Project dependencies
+├── README.md                          # Project documentation
 │
-├── test_content_analyst.py
-├── test_content_node.py
-├── test_content_writer.py
-├── test_decision.py
-├── test_seo_analyst.py
-├── test_seo_node.py
-├── test_transcript_cleaner.py
-├── test_validator.py
-├── test_validator_node.py
-├── test_workflow_state.py
-├── test_writer_node.py
-├── test_youtube.py
-└── test_youtube_node.py
+├── test_content_analyst.py           # Tests Content Analyst
+├── test_content_node.py              # Tests Content Node
+├── test_content_writer.py            # Tests Content Writer
+├── test_decision.py                  # Tests workflow decision logic
+├── test_seo_analyst.py               # Tests SEO Analyst
+├── test_seo_node.py                  # Tests SEO Node
+├── test_transcript_cleaner.py        # Tests transcript cleaning
+├── test_validator.py                 # Tests Validator
+├── test_validator_node.py            # Tests Validator Node
+├── test_workflow_state.py            # Tests workflow state
+├── test_writer_node.py               # Tests Writer Node
+├── test_youtube.py                   # Tests YouTube utilities
+└── test_youtube_node.py              # Tests YouTube workflow node
 
 
 ## Technologies Used
